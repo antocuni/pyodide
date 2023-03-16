@@ -98,7 +98,8 @@ dist/pyodide.asm.js: src/core/main.o  \
                      dist/libpyodide.a
 	date +"[%F %T] Building pyodide.asm.js..."
 	[ -d dist ] || mkdir dist
-	$(CXX) -o dist/pyodide.asm.js dist/libpyodide.a src/core/main.o $(MAIN_MODULE_LDFLAGS)
+	# the -Wl,--whole-archive is a workaround for this: https://github.com/emscripten-core/emscripten/issues/18982
+	$(CXX) -o dist/pyodide.asm.js -Wl,--whole-archive dist/libpyodide.a -Wl,--no-whole-archive src/core/main.o $(MAIN_MODULE_LDFLAGS)
 
 	if [[ -n $${PYODIDE_SOURCEMAP+x} ]] || [[ -n $${PYODIDE_SYMBOLS+x} ]] || [[ -n $${PYODIDE_DEBUG_JS+x} ]]; then \
 		cd dist && npx prettier -w pyodide.asm.js ; \
