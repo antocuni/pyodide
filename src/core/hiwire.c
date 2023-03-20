@@ -10,13 +10,13 @@
 #define ERROR_REF (0)
 #define ERROR_NUM (-1)
 
-const JsRef Js_undefined = ((JsRef)(2));
-const JsRef Js_true = ((JsRef)(4));
-const JsRef Js_false = ((JsRef)(6));
-const JsRef Js_null = ((JsRef)(8));
+EMSCRIPTEN_KEEPALIVE const JsRef Js_undefined = ((JsRef)(2));
+EMSCRIPTEN_KEEPALIVE const JsRef Js_true = ((JsRef)(4));
+EMSCRIPTEN_KEEPALIVE const JsRef Js_false = ((JsRef)(6));
+EMSCRIPTEN_KEEPALIVE const JsRef Js_null = ((JsRef)(8));
 
 // For when the return value would be Option<JsRef>
-const JsRef Js_novalue = ((JsRef)(10));
+EMSCRIPTEN_KEEPALIVE const JsRef Js_novalue = ((JsRef)(10));
 
 JsRef
 hiwire_from_bool(bool boolean)
@@ -31,7 +31,7 @@ EM_JS(bool, hiwire_to_bool, (JsRef val), {
 // clang-format on
 
 #ifdef DEBUG_F
-bool tracerefs;
+EMSCRIPTEN_KEEPALIVE bool tracerefs;
 #endif
 
 #define HIWIRE_INIT_CONST(js_const, hiwire_attr, js_value)                     \
