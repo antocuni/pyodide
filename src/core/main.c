@@ -56,7 +56,7 @@ PyInit__pyodide_core(void);
  *     _pyodide._import_hook.register_js_finder (this happens in loadPyodide in
  *     pyodide.js)
  */
-int
+EMSCRIPTEN_KEEPALIVE int
 main(int argc, char** argv)
 {
   // This exits and prints a message to stderr on failure,
