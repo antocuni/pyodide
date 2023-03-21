@@ -107,7 +107,6 @@ export SIDE_MODULE_LDFLAGS=	$(LDFLAGS_BASE) -s SIDE_MODULE=1
 
 export EXPORTED_FUNCTIONS= ' \
 	_buffer_struct_size, \
-	_dump_traceback, \
 	_free, \
 	_JsProxy_Check, \
 	_JsProxy_create, \
@@ -150,8 +149,6 @@ export EXPORTED_FUNCTIONS= ' \
 	_python2js_custom, \
 	_pythonexc2js, \
 	__PyTraceback_Add, \
-	_py_version_major, \
-	_py_version_minor, \
 	_restore_sys_last_exception, \
 	_set_error, \
 	_PyUnicode_New, \
