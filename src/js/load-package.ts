@@ -481,7 +481,7 @@ export async function loadPackage(
       Array.from(toLoad.values()).map(({ installPromise }) => installPromise),
     );
 
-    Module.reportUndefinedSymbols();
+    // Module.reportUndefinedSymbols();
     if (loaded.size > 0) {
       const successNames = Array.from(loaded).join(", ");
       messageCallback(`Loaded ${successNames}`);

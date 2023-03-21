@@ -141,9 +141,6 @@ export EXPORTED_FUNCTIONS= ' \
 	_PyDict_New, \
 	_PySet_New, \
 	_PySet_Add, \
-	__js2python_none, \
-	__js2python_true, \
-	__js2python_false, \
 	_PyDict_SetItem, \
 	_JsBuffer_CopyIntoMemoryView \
 '
