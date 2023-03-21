@@ -106,16 +106,10 @@ export SIDE_MODULE_LDFLAGS=	$(LDFLAGS_BASE) -s SIDE_MODULE=1
 #	-sEXPORTED_FUNCTIONS='_py_version_major,_py_version_minor,_PyRun_SimpleString' \
 
 export EXPORTED_FUNCTIONS= ' \
-	__js2python_pyproxy, \
 	__PyErr_CheckSignals, \
 	__PyLong_FromByteArray, \
-	__python2js, \
 	__PyTraceback_Add, \
-	_buffer_struct_size, \
 	_free, \
-	_JsBuffer_CopyIntoMemoryView, \
-	_JsProxy_Check, \
-	_JsProxy_create, \
 	_Py_DecRef, \
 	_Py_EMSCRIPTEN_SIGNAL_HANDLING, \
 	_Py_IncRef, \
@@ -135,14 +129,8 @@ export EXPORTED_FUNCTIONS= ' \
 	_PyRun_SimpleString, \
 	_PySet_Add, \
 	_PySet_New, \
-	_python2js_custom, \
-	_python2js_with_depth, \
-	_python2js, \
-	_pythonexc2js, \
 	_PyUnicode_Data, \
-	_PyUnicode_New, \
-	_restore_sys_last_exception, \
-	_set_error \
+	_PyUnicode_New \
 '
 
 export MAIN_MODULE_LDFLAGS= $(LDFLAGS_BASE) \

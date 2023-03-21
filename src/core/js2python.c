@@ -35,7 +35,7 @@ _js2python_false()
   Py_RETURN_FALSE;
 }
 
-PyObject*
+EMSCRIPTEN_KEEPALIVE PyObject*
 _js2python_pyproxy(PyObject* val)
 {
   Py_INCREF(val);

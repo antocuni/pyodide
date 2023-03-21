@@ -3281,7 +3281,7 @@ static PyMethodDef JsBuffer_assign_MethodDef = {
  * itemsize - the appropriate itemsize for jsbuffer, from get_buffer_datatype
  */
 // Used in js2python, intentionally not static
-PyObject*
+EMSCRIPTEN_KEEPALIVE PyObject*
 JsBuffer_CopyIntoMemoryView(JsRef jsbuffer,
                             Py_ssize_t byteLength,
                             char* format,
@@ -4070,13 +4070,13 @@ JsProxy_create_with_this(JsRef object, JsRef this)
   return create_proxy_of_type(type_flags, object, this);
 }
 
-PyObject*
+EMSCRIPTEN_KEEPALIVE PyObject*
 JsProxy_create(JsRef object)
 {
   return JsProxy_create_with_this(object, NULL);
 }
 
-bool
+EMSCRIPTEN_KEEPALIVE bool
 JsProxy_Check(PyObject* x)
 {
   return PyObject_TypeCheck(x, &JsProxyType);

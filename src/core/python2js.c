@@ -39,7 +39,7 @@ typedef struct ConversionContext_s
   bool default_converter;
 } ConversionContext;
 
-JsRef
+EMSCRIPTEN_KEEPALIVE JsRef
 _python2js(ConversionContext context, PyObject* x);
 
 EM_JS(void,
@@ -557,7 +557,7 @@ python2js_track_proxies(PyObject* x, JsRef proxies)
  * Do a translation from Python to JavaScript. Convert immutable types with
  * equivalent JavaScript immutable types, but all other types are proxied.
  */
-JsRef
+EMSCRIPTEN_KEEPALIVE JsRef
 python2js(PyObject* x)
 {
   return python2js_inner(x, NULL, false);
@@ -580,7 +580,7 @@ _JsMap_Set(ConversionContext context, JsRef map, JsRef key, JsRef value)
  * Do a conversion from Python to JavaScript, converting lists, dicts, and sets
  * down to depth "depth".
  */
-JsRef
+EMSCRIPTEN_KEEPALIVE JsRef
 python2js_with_depth(PyObject* x, int depth, JsRef proxies)
 {
   return python2js_custom(x, depth, proxies, NULL, NULL);
@@ -688,7 +688,7 @@ python2js_custom__create_jscontext,
  * pairs into the desired JavaScript object. If dict_converter is NULL, we use
  * python2js_with_depth which converts dicts to Map (the default)
  */
-JsRef
+EMSCRIPTEN_KEEPALIVE JsRef
 python2js_custom(PyObject* x,
                  int depth,
                  JsRef proxies,
