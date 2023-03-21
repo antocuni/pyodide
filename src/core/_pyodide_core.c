@@ -49,7 +49,7 @@ PyInit__pyodide_core(void)
     Module.wasmTable = wasmTable;
     // Emscripten has a bug where it accidentally exposes an empty object as
     // Module.ERRNO_CODES
-    if(typeof ERRNO_CODES != "undefined") {
+    if (typeof ERRNO_CODES != "undefined") {
       Module.ERRNO_CODES = ERRNO_CODES;
     }
   });
@@ -77,6 +77,8 @@ PyInit__pyodide_core(void)
   TRY_INIT(python2js_buffer);
   TRY_INIT_WITH_CORE_MODULE(JsProxy);
   TRY_INIT_WITH_CORE_MODULE(pyproxy);
+  TRY_INIT(pyodide_pre);
+  TRY_INIT(pyversion);
 
   PyObject* module_dict = PyImport_GetModuleDict(); /* borrowed */
   if (PyDict_SetItemString(module_dict, "_pyodide_core", core_module)) {

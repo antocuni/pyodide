@@ -69,10 +69,7 @@ src/core/pyodide_pre.o: src/js/_pyodide.out.js src/core/pre.js
 	cat tmp.dat  | xxd -i - >> src/core/pyodide_pre.gen.c
 	# Add a null byte to terminate the string
 	echo ', 0};' >> src/core/pyodide_pre.gen.c
-	echo 'EMSCRIPTEN_KEEPALIVE' >> src/core/pyodide_pre.gen.c
-	echo 'void foobar(void) {' >> src/core/pyodide_pre.gen.c
-	echo '    pyodide_js_init();' >> src/core/pyodide_pre.gen.c
-	echo '}' >> src/core/pyodide_pre.gen.c
+	echo 'int pyodide_pre_init(void) { return 0; }' >> src/core/pyodide_pre.gen.c
 
 	rm tmp.dat
 	emcc -c src/core/pyodide_pre.gen.c -o src/core/pyodide_pre.o
@@ -98,8 +95,7 @@ dist/pyodide.asm.js: src/core/main.o  \
                      dist/libpyodide.a
 	date +"[%F %T] Building pyodide.asm.js..."
 	[ -d dist ] || mkdir dist
-	# the -Wl,--whole-archive is a workaround for this: https://github.com/emscripten-core/emscripten/issues/18982
-	$(CXX) -o dist/pyodide.asm.js -Wl,--whole-archive dist/libpyodide.a -Wl,--no-whole-archive src/core/main.o $(MAIN_MODULE_LDFLAGS)
+	$(CXX) -o dist/pyodide.asm.js dist/libpyodide.a src/core/main.o $(MAIN_MODULE_LDFLAGS)
 
 	if [[ -n $${PYODIDE_SOURCEMAP+x} ]] || [[ -n $${PYODIDE_SYMBOLS+x} ]] || [[ -n $${PYODIDE_DEBUG_JS+x} ]]; then \
 		cd dist && npx prettier -w pyodide.asm.js ; \

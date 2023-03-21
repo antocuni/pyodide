@@ -2,6 +2,12 @@
 #include "Python.h"
 #include <emscripten.h>
 
+int
+pyversion_init()
+{
+  return 0;
+}
+
 EMSCRIPTEN_KEEPALIVE int
 py_version_major()
 {
