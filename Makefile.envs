@@ -107,11 +107,8 @@ export SIDE_MODULE_LDFLAGS=	$(LDFLAGS_BASE) -s SIDE_MODULE=1
 
 export MAIN_MODULE_LDFLAGS= $(LDFLAGS_BASE) \
 	-s EXPORT_NAME="'_createPyodideModule'" \
-	-s EXPORT_EXCEPTION_HANDLING_HELPERS \
-	-s EXCEPTION_CATCHING_ALLOWED=['we only want to allow exception handling in side modules'] \
 	-sEXPORTED_RUNTIME_METHODS='stackAlloc,stackRestore,stackSave,FS,ENV,stringToNewUTF8' \
 	-sEXPORTED_FUNCTIONS='_buffer_struct_size,_dump_traceback,_free,_JsProxy_Check,_JsProxy_create,_PyBuffer_Release,_Py_DecRef,_Py_EMSCRIPTEN_SIGNAL_HANDLING,__PyErr_CheckSignals,_PyErr_Occurred,_PyErr_Print,_Py_IncRef,_PyMem_Free,_PyObject_GetAIter,_PyObject_GetIter,_PyObject_Size,__pyproxy_aiter_next,__pyproxy_apply,__pyproxy_contains,__pyproxy_delattr,__pyproxy_delitem,__pyproxy_ensure_future,__pyproxyGen_areturn,__pyproxyGen_asend,__pyproxyGen_athrow,__pyproxyGen_return,__pyproxyGen_Send,__pyproxyGen_throw,__pyproxy_getattr,__pyproxy_get_buffer,_pyproxy_getflags,__pyproxy_getitem,__pyproxy_hasattr,__pyproxy_iter_next,__pyproxy_ownKeys,__pyproxy_repr,__pyproxy_setattr,__pyproxy_setitem,__pyproxy_type,_PyRun_SimpleString,_python2js,_python2js_custom,_pythonexc2js,__PyTraceback_Add,_py_version_major,_py_version_minor,_restore_sys_last_exception,_set_error,_PyUnicode_New,_PyUnicode_Data,__js2python_pyproxy,__PyLong_FromByteArray,_PyLong_FromDouble,_PyFloat_FromDouble,_PyList_New,_PyList_SetItem,_PyDict_New,_PySet_New,_PySet_Add,__js2python_none,__js2python_true,__js2python_false,_PyDict_SetItem' \
-	-s DEMANGLE_SUPPORT=1 \
 	-s USE_ZLIB \
 	-s USE_BZIP2 \
 	-s FORCE_FILESYSTEM=1 \
@@ -126,14 +123,6 @@ export MAIN_MODULE_LDFLAGS= $(LDFLAGS_BASE) \
 	-s NODEJS_CATCH_REJECTION=0 \
 	\
 	-lpython$(PYMAJOR).$(PYMINOR) \
-	-lffi \
-	-lstdc++ \
-	-lidbfs.js \
-	-lnodefs.js \
-	-lproxyfs.js \
-	-lworkerfs.js \
-	-lwebsocket.js \
-	-leventloop.js
 
 
 export SIDE_MODULE_CXXFLAGS = $(CXXFLAGS_BASE)
