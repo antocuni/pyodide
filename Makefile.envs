@@ -106,43 +106,43 @@ export SIDE_MODULE_LDFLAGS=	$(LDFLAGS_BASE) -s SIDE_MODULE=1
 #	-sEXPORTED_FUNCTIONS='_py_version_major,_py_version_minor,_PyRun_SimpleString' \
 
 export EXPORTED_FUNCTIONS= ' \
+	__js2python_pyproxy, \
+	__PyErr_CheckSignals, \
+	__PyLong_FromByteArray, \
+	__python2js, \
+	__PyTraceback_Add, \
 	_buffer_struct_size, \
 	_free, \
+	_JsBuffer_CopyIntoMemoryView, \
 	_JsProxy_Check, \
 	_JsProxy_create, \
-	_PyBuffer_Release, \
 	_Py_DecRef, \
 	_Py_EMSCRIPTEN_SIGNAL_HANDLING, \
-	__PyErr_CheckSignals, \
+	_Py_IncRef, \
+	_PyBuffer_Release, \
+	_PyDict_New, \
+	_PyDict_SetItem, \
 	_PyErr_Occurred, \
 	_PyErr_Print, \
-	_Py_IncRef, \
+	_PyFloat_FromDouble, \
+	_PyList_New, \
+	_PyList_SetItem, \
+	_PyLong_FromDouble, \
 	_PyMem_Free, \
 	_PyObject_GetAIter, \
 	_PyObject_GetIter, \
 	_PyObject_Size, \
 	_PyRun_SimpleString, \
-	_python2js, \
-	__python2js, \
-	_python2js_with_depth, \
-	_python2js_custom, \
-	_pythonexc2js, \
-	__PyTraceback_Add, \
-	_restore_sys_last_exception, \
-	_set_error, \
-	_PyUnicode_New, \
-	_PyUnicode_Data, \
-	__js2python_pyproxy, \
-	__PyLong_FromByteArray, \
-	_PyLong_FromDouble, \
-	_PyFloat_FromDouble, \
-	_PyList_New, \
-	_PyList_SetItem, \
-	_PyDict_New, \
-	_PySet_New, \
 	_PySet_Add, \
-	_PyDict_SetItem, \
-	_JsBuffer_CopyIntoMemoryView \
+	_PySet_New, \
+	_python2js_custom, \
+	_python2js_with_depth, \
+	_python2js, \
+	_pythonexc2js, \
+	_PyUnicode_Data, \
+	_PyUnicode_New, \
+	_restore_sys_last_exception, \
+	_set_error \
 '
 
 export MAIN_MODULE_LDFLAGS= $(LDFLAGS_BASE) \
