@@ -121,29 +121,6 @@ export EXPORTED_FUNCTIONS= ' \
 	_PyObject_GetAIter, \
 	_PyObject_GetIter, \
 	_PyObject_Size, \
-	__pyproxy_aiter_next, \
-	__pyproxy_apply, \
-	__pyproxy_contains, \
-	__pyproxy_delattr, \
-	__pyproxy_delitem, \
-	__pyproxy_ensure_future, \
-	__pyproxyGen_areturn, \
-	__pyproxyGen_asend, \
-	__pyproxyGen_athrow, \
-	__pyproxyGen_return, \
-	__pyproxyGen_Send, \
-	__pyproxyGen_throw, \
-	__pyproxy_getattr, \
-	__pyproxy_get_buffer, \
-	_pyproxy_getflags, \
-	__pyproxy_getitem, \
-	__pyproxy_hasattr, \
-	__pyproxy_iter_next, \
-	__pyproxy_ownKeys, \
-	__pyproxy_repr, \
-	__pyproxy_setattr, \
-	__pyproxy_setitem, \
-	__pyproxy_type, \
 	_PyRun_SimpleString, \
 	_python2js, \
 	_python2js_custom, \
