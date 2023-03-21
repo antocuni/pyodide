@@ -633,8 +633,10 @@ _real_python2js__default_converter,
 // clang-format on
 
 // XXX workaround for https://github.com/emscripten-core/emscripten/issues/18957
-JsRef python2js__default_converter(JsRef jscontext, PyObject* object) {
-    return _real_python2js__default_converter(jscontext, object);
+JsRef
+python2js__default_converter(JsRef jscontext, PyObject* object)
+{
+  return _real_python2js__default_converter(jscontext, object);
 }
 
 static JsRef

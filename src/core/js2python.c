@@ -54,8 +54,10 @@ EM_JS_REF(PyObject*, _real_js2python, (JsRef id), {
 })
 
 // XXX workaround for https://github.com/emscripten-core/emscripten/issues/18957
-PyObject* js2python(JsRef id) {
-    return _real_js2python(id);
+PyObject*
+js2python(JsRef id)
+{
+  return _real_js2python(id);
 }
 
 /**
