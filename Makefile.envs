@@ -123,6 +123,8 @@ export EXPORTED_FUNCTIONS= ' \
 	_PyObject_Size, \
 	_PyRun_SimpleString, \
 	_python2js, \
+	__python2js, \
+	_python2js_with_depth, \
 	_python2js_custom, \
 	_pythonexc2js, \
 	__PyTraceback_Add, \
@@ -142,7 +144,8 @@ export EXPORTED_FUNCTIONS= ' \
 	__js2python_none, \
 	__js2python_true, \
 	__js2python_false, \
-	_PyDict_SetItem \
+	_PyDict_SetItem, \
+	_JsBuffer_CopyIntoMemoryView \
 '
 
 export MAIN_MODULE_LDFLAGS= $(LDFLAGS_BASE) \
